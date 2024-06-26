@@ -1,5 +1,6 @@
 import {
-    DollarSign,
+  Banknote,
+    File,
     Home,
     LogOut,
     Menu,
@@ -85,19 +86,19 @@ import useAxiosSecure from "@/hooks/useAxiosSecure"
                   <Home className="h-4 w-4" />
                   Dashboard
                 </NavLink>
-                {/* <NavLink
-                  to="billing"
+                <NavLink
+                  to="all-payments"
                   className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all"
                 >
-                  <Coins className="h-4 w-4" />
-                  Billing
-                </NavLink> */}
+                  <Banknote className="h-4 w-4" />
+                  All Payments
+                </NavLink>
                 <NavLink
                   to="payments"
                   className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all"
                 >
-                  <DollarSign className="h-4 w-4" />
-                  Payments
+                  <File className="h-4 w-4" />
+                  Payments Report
                 </NavLink>
 
                 <NavLink

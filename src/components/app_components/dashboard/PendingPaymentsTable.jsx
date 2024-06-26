@@ -19,13 +19,11 @@ import {
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import { dateFormate } from "@/lib/common";
 
-
   import PropTypes from "prop-types";
 import toast from "react-hot-toast";
-import ExportToExcel from "./ExportToExcel";
 
 
-const PaymentReportTable = ({transactions, startDate, endDate, updateData, data}) => {
+const PendingPaymentsTable = ({transactions, startDate, endDate, updateData}) => {
     const axiosSecure = useAxiosSecure();
 
     const handlePaid = (id, amount, status) => {
@@ -50,7 +48,6 @@ const PaymentReportTable = ({transactions, startDate, endDate, updateData, data}
             <CardHeader className="flex flex-row items-center">
               <div className="grid gap-2">
                 <CardTitle>Payments Report({dateFormate(startDate)} to {dateFormate(endDate)})</CardTitle>
-                <div className="float-right mt-3"><ExportToExcel data={data} fileName={`Payment Report(${dateFormate(startDate)} to ${dateFormate(endDate)})`}/></div>
                 <CardDescription>
                 </CardDescription>
               </div>
@@ -77,7 +74,7 @@ const PaymentReportTable = ({transactions, startDate, endDate, updateData, data}
                     <TableCell className="text-right">${t.amount}</TableCell>
                     <TableCell className="text-right"><Badge>{t.status}</Badge></TableCell>
                     <TableCell className="text-right">
-                        <Button disabled={t.status==="not-collected"} className={t.status == "paid" ? "bg-red-500 text-white":"bg-green-500 text-white"} onClick={()=>handlePaid(t.id, t.amount, t.status == "paid" ? "pending" : "paid")}>Make {t.status == "paid" ? "pending":"paid"}</Button>
+                        <Button className={t.status == "paid" ? "bg-red-500 text-white":"bg-green-500 text-white"} onClick={()=>handlePaid(t.id, t.amount, t.status == "paid" ? "pending" : "paid")}>Make {t.status == "paid" ? "pending":"paid"}</Button>
                     </TableCell>
                   </TableRow>
                   })
@@ -91,13 +88,12 @@ const PaymentReportTable = ({transactions, startDate, endDate, updateData, data}
     );
 };
 
-PaymentReportTable.propTypes = {
+PendingPaymentsTable.propTypes = {
     transactions: PropTypes.array.isRequired,
     startDate: PropTypes.string.isRequired,
     endDate: PropTypes.string.isRequired,
-    updateData: PropTypes.func.isRequired,
-    data: PropTypes.array.isRequired,
+    updateData: PropTypes.func.isRequired
 };
 
 
-export default PaymentReportTable;
+export default PendingPaymentsTable;

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import useAxiosSecure from '@/hooks/useAxiosSecure';
+import { dateFormate } from '@/lib/common';
 import { DollarSign } from 'lucide-react';
 import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
@@ -15,10 +16,10 @@ const Payments = () => {
     const [endDate, setEndDate] = useState('');
     const [payments, setPayments] = useState([]);
     const [totalReport, setTotalReport] = useState(null);
-
     const [isData, setIsData] = useState(false)
-
     const axiosSecure = useAxiosSecure()
+
+    const [data, setData] = useState([])
 
     useEffect(() => {
         axiosSecure.get('/payments-statistics')
@@ -45,6 +46,7 @@ const Payments = () => {
                 setPayments(res.data.payments)
                 setTotalReport(res.data)
                 setIsData(true)
+                handleOrganizeData(res.data.payments)
             })
             .catch(err => {
                 console.log(err)
@@ -66,6 +68,7 @@ const Payments = () => {
     .then(res => {
         setPayments(res.data.payments)
         setTotalReport(res.data)
+        handleOrganizeData(res.data.payments)
         // setIsData(true)
     })
     .catch(err => {
@@ -73,6 +76,16 @@ const Payments = () => {
         throw new Error('Failed to Generate Report')
     })
     }
+
+    const handleOrganizeData = (payments) => {
+        const data = payments.map(payment => {
+            const { user, amount, status, date } = payment;
+            return { user: user.name, amount, status, date: dateFormate(date) };
+        });
+        setData(data)
+    }
+
+ 
     
 
     return (
@@ -106,11 +119,12 @@ const Payments = () => {
             <div><Button type="submit">Generate</Button></div>
             </form>
            {totalReport && <div className='grid lg:grid-cols-4 mt-4 gap-3 md:grid-cols-2 grid-cols-1'>
-                <DashboardCard title="Total Paid" icon={<DollarSign/>} num={totalReport.totalPaid}/>
+                <DashboardCard title="Total Confirmed" icon={<DollarSign/>} num={totalReport.totalPaid}/>
                 <DashboardCard title="Total Pending" icon={<DollarSign/>} num={totalReport.totalPending}/>
+                <DashboardCard title="Total Not collected" icon={<DollarSign/>} num={totalReport.totalNotCollected}/>
             </div>}
             <div className='mt-4'>
-            {isData && <PaymentReportTable transactions={payments} startDate={startDate} endDate={endDate} updateData={updateData}/>}
+            {isData && <PaymentReportTable transactions={payments} startDate={startDate} endDate={endDate} updateData={updateData} data={data}/>}
             </div>
            </div>
         </div>

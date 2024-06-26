@@ -13,9 +13,16 @@ import { Plus } from "lucide-react";
 import { useEffect, useState } from "react";
 import Loading from "@/components/app_components/common/Loading";
 // import useAuth from "@/hooks/useAuth";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const EditUser = () => {
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, watch } = useForm();
   const [isData, setIsData] = useState(false)
   const axiosSecure = useAxiosSecure();
   const { id } = useParams();
@@ -41,6 +48,7 @@ const EditUser = () => {
       setValue("phone", user.phone);
       setValue("bill", user.bill);
       setValue("location", user.location);
+      setValue("status", user.status); 
       
     });
   }, [id, axiosSecure, setValue]);
@@ -123,6 +131,19 @@ const EditUser = () => {
                   required
                 />
               </div>
+
+              <div>
+              <Label htmlFor="status">Status</Label>
+               <Select onValueChange={(value) => setValue("status", value)} value={watch('status')}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Status" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="active">Active</SelectItem>
+                    <SelectItem value="inactive">Inactive</SelectItem>
+                  </SelectContent>
+                </Select>
+               </div>
 
               {/* <div>
             <div className="text-sm font-semibold">Contest deadline</div>

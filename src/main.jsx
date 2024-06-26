@@ -11,7 +11,6 @@ import Login from "./routes/Authentication/Login.jsx";
 import Dashboard from "./routes/Admin/Dashboard/Dashboard.jsx";
 import StaffDashboardHome from "./routes/Staff/Dashboard/Dashboard.jsx";
 import AdminDashboard from "./routes/Admin/AdminDashboard.jsx";
-import Billing from "./routes/Admin/Dashboard/Billing.jsx";
 import Payments from "./routes/Admin/Dashboard/Payments.jsx";
 import SendMessage from "./routes/Admin/Dashboard/SendMessage.jsx";
 import AddUser from "./routes/Admin/Dashboard/AddUser.jsx";
@@ -22,6 +21,7 @@ import AuthProvider from "./providers/AuthProvider.jsx";
 import PrivateRoute from "./routes/Authentication/PrivateRoute.jsx";
 import EditUser from "./routes/Admin/Dashboard/EditUser.jsx";
 import ViewUser from "./routes/Admin/Dashboard/ViewUser.jsx";
+import AllPayments from "./routes/Admin/Dashboard/AllPayments.jsx";
 
 const queryClient = new QueryClient()
 
@@ -49,8 +49,8 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "billing",
-        element: <Billing />,
+        path: "all-payments",
+        element: <AllPayments />,
       },
       {
         path: "payments",

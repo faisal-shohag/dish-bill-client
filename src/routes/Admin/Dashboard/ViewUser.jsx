@@ -3,16 +3,16 @@ import DashboardCard from "@/components/app_components/dashboard/DashboardCard";
 
 import { Card, CardContent } from "@/components/ui/card";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
-import { Banknote, Calendar } from "lucide-react";
+import { Banknote, Calendar, Edit } from "lucide-react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Loading from '@/components/app_components/common/Loading';
 import UserTransactions from '@/components/app_components/dashboard/UserTransactions';
 import { Separator } from '@/components/ui/separator';
 import { dateFormate } from '@/lib/common';
+import { Badge } from '@/components/ui/badge';
 
 const ViewUser = () => {
-
     const {id} = useParams()
     const axiosSecure = useAxiosSecure()
     const [user, setUser] = useState(null)
@@ -24,8 +24,6 @@ const ViewUser = () => {
           
         });
       }, [id, axiosSecure]);
-
-    //   console.log(user);
 
   return (
     <div>
@@ -41,9 +39,11 @@ const ViewUser = () => {
         <Card>
             <CardContent>
                 <div className='p-5'>
+                  <Link to={"/admin/edit-user/" + id}><div className='float-right p-3 flex justify-center items-center border rounded-full hover:bg-gray-700'><Edit/></div></Link>
                     <div className='flex justify-center flex-col items-center'>
                         <img className='h-[100px] rounded-full border' src='https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg' alt='profile-image'/>
                         <div className='text-2xl font-bold mt-3'>{user.name}</div>
+                        <Badge className={user.status === "active" ? "bg-green-500 text-white": "bg-red-500 text-white"}>{user.status === "active" ? "Active" : "Inactive"}</Badge>
                     </div>
 
                     <div>

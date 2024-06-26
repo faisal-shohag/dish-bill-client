@@ -9,11 +9,12 @@ import { useForm } from "react-hook-form";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { Plus } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 // import useAuth from "@/hooks/useAuth";
 
 const AddUser = () => {
     // const [startDate, setStartDate] = useState(new Date());
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit, setValue } = useForm()
 
     const axiosSecure = useAxiosSecure()
     // const {user} = useAuth()
@@ -111,6 +112,20 @@ const AddUser = () => {
                 required
               />
             </div>
+
+            
+            <div>
+              <Label htmlFor="status">Status</Label>
+               <Select onValueChange={(value) => setValue("status", value)}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Status" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="active">Active</SelectItem>
+                    <SelectItem value="inactive">Inactive</SelectItem>
+                  </SelectContent>
+                </Select>
+               </div>
 
            
 
