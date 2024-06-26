@@ -135,7 +135,7 @@ const AddUser = () => {
             </div> */}
 
            
-            <Button type="submit" className="col-span-2">
+            <Button type="submit" className="col-span-2 lg:mt-0 md:mt-0 mt-5 w-full">
               <Plus className="mr-2 h-5 w-5"/> Add
             </Button>
           </form>

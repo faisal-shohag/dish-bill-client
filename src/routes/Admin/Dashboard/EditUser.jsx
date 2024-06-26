@@ -150,7 +150,7 @@ const EditUser = () => {
             <DatePicker className="bg-white dark:bg-slate-950 border text-center w-full px-2 py-2 rounded-md" selected={startDate} onChange={(date) => setStartDate(date)} />
             </div> */}
 
-              <Button type="submit" className="col-span-2">
+              <Button type="submit" className="col-span-2 lg:mt-0 md:mt-0 mt-5 w-full">
                 <Plus className="mr-2 h-5 w-5" /> Update
               </Button>
             </form>
