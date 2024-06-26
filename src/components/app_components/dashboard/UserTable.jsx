@@ -131,7 +131,8 @@ const UserTable = () => {
             </CardHeader>
             <CardContent>
               
-        <Table>
+        { users.length === 0 ? <div className="font-bold text-lg mt-5 text-center">No user added yet!</div> :
+         <Table>
           <TableHeader>
             <TableRow>
               <TableHead className="hidden w-[100px] sm:table-cell">
@@ -200,10 +201,10 @@ const UserTable = () => {
               </TableRow>
             ))}
           </TableBody>
-        </Table>
+        </Table>}
         </CardContent>
         <CardFooter>
-          <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}/>
+{         user.length > 0 && <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}/>}
         </CardFooter>
         </Card>
       ) : (
