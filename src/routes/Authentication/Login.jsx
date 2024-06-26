@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
@@ -27,6 +26,9 @@ const Login = () => {
           .then((res) => {
             console.log(res.data);
             navigate(`/${res.data.admin.role}/dashboard`)
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
           })
           .catch((error) => {
             console.log(error);
