@@ -216,9 +216,8 @@ const PaymentsSearchTable = () => {
                           </DropdownMenuTrigger>
                           <DropdownMenuContent align="end">
                             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                            <DropdownMenuItem>View</DropdownMenuItem>
-                            <DropdownMenuItem>Edit</DropdownMenuItem>
-                            <DropdownMenuItem>Delete</DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => {setId(p.id); setIsOpen(true)}}>Edit</DropdownMenuItem>
+                            <DropdownMenuItem onClick = {() => handlePaid(p.status == "paid" ? "pending" : "paid", p.id, p.amount)} disabled={p.status == "not-collected"}>Make {p.status == "paid" ? "pending" : "paid"}</DropdownMenuItem>
                           </DropdownMenuContent>
                         </DropdownMenu>
                       </div>

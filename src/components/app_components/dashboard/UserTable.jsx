@@ -173,9 +173,9 @@ const UserTable = () => {
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem>View</DropdownMenuItem>
-                        <DropdownMenuItem>Edit</DropdownMenuItem>
-                        <DropdownMenuItem>Delete</DropdownMenuItem>
+                        <Link to={`/admin/view-user/${user.id}`}><DropdownMenuItem>View</DropdownMenuItem></Link>
+                        <Link to={`/admin/edit-user/${user.id}`}><DropdownMenuItem>Edit</DropdownMenuItem></Link>
+                        <DropdownMenuItem onClick={() =>{ setIsOpen(true); setId(user.id)}}>Delete</DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </div>

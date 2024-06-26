@@ -6,10 +6,9 @@ const ProgressWindow = () => {
       <div className="flex flex-col items-center justify-center h-svh">
         <img
           className="h-[100px] w-[100px] animate-ping"
-          src="https://i.postimg.cc/XYSGZD9T/logo.png"
+          src="https://i.postimg.cc/dV1YsWV2/image.png"
         />
-        <div className="font-bold text-2xl mt-2">Space Soft</div>
-        <center>Being ready...</center>
+        <div className="font-bold text-2xl mt-2">Dish Bill Management System</div>
         <div>Please wait...</div>
       </div>
     </div>

@@ -122,9 +122,8 @@ const PaymentTable = ({users, currentPage, totalPages, handlePageChange, month, 
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem>View</DropdownMenuItem>
-                        <DropdownMenuItem>Edit</DropdownMenuItem>
-                        <DropdownMenuItem>Delete</DropdownMenuItem>
+                        <DropdownMenuItem onClick={() =>{ setIsOpen(true); setBill(user.bill); setPaymentId(user.payment.id)}}>{user.payment.status === "not-collected" ? "Collect" : "Collected"}</DropdownMenuItem>
+                        <Link to={`/staff/edit-user/${user.id}`}><DropdownMenuItem>Edit</DropdownMenuItem></Link>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </div>

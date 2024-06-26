@@ -49,17 +49,17 @@ const Login = () => {
   };
 
   return (
-    <div className="my-10 section">
-      <Card>
-        {/* <CardContent> */}
-        <div className="w-full lg:grid  lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[600px]">
+    <div className="my-5 section w-full">
+      <div className="flex justify-center flex-col items-center"> <img className="h-[80px]" src="https://i.postimg.cc/dV1YsWV2/image.png" alt="logo"/>
+      <div className="font-bold text-lg mt-2 text-white">Dish Bill Management System</div>
+      
+      </div>
+      <div style={{backgroundImage: "url('https://img.freepik.com/premium-photo/cosmic-purple-space_915141-171.jpg?w=900')"}} className="absolute top-0 left-0 h-screen w-screen bg-cover bg-center z-[-1] blur-3xl"></div>
+      <div className="mx-auto">
           <div className="flex items-center justify-center py-12">
-            <div className="mx-auto grid w-[350px] gap-6">
+            <div className="mx-auto grid w-[450px] gap-6 border p-10 rounded-xl bg-white dark:bg-gray-900">
               <div className="grid gap-2 text-center">
                 <h1 className="text-3xl font-bold">Login</h1>
-                <p className="text-balance text-muted-foreground">
-                  Enter your email below to login to your account
-                </p>
               </div>
               <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
                 <div className="grid gap-2">
@@ -88,25 +88,10 @@ const Login = () => {
                   Login
                 </Button>
               </form>
-              {/* <div className="mt-4 text-center text-sm">
-              Don&apos;t have an account?{" "}
-              <Link href="#" className="underline">
-                Sign up
-              </Link>
-            </div> */}
             </div>
           </div>
-          {/* <div className="hidden bg-muted lg:block">
-            <img
-              src="https://img.freepik.com/free-photo/satellite-approaching-earth_1048-2422.jpg?t=st=1719295262~exp=1719298862~hmac=ec0ec2bea32eb1963da66cb8c802c83e2d2c625e80b7c497d29b674c5fb77939&w=740"
-              alt="Image"
-              
-              className="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
-            />
-          </div> */}
-        </div>
-        {/* </CardContent> */}
-      </Card>
+
+      </div>
     </div>
   );
 };

@@ -144,7 +144,7 @@ const AddUser = () => {
       </div>
       <div className="hidden bg-muted lg:block">
         <img
-          src="https://img.freepik.com/free-vector/mural-artist-concept-illustration_114360-6335.jpg?t=st=1717762539~exp=1717766139~hmac=ce984d1697c18ff6d34b38bac08064dea9e211a5cb954803564022337335a8fb&w=740"
+          src="https://img.freepik.com/free-vector/choice-worker-concept_23-2148626348.jpg?t=st=1719422423~exp=1719426023~hmac=97ed2f69343550eafe173b6332f93d5f7481fd4fd00d081967f4f7ebd596d461&w=740"
           alt="Image"
           width="1000"
           height="1080"
