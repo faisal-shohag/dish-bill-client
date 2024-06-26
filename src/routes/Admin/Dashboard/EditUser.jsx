@@ -70,7 +70,7 @@ const EditUser = () => {
 
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="grid gap-4 md:grid-cols-2 grid-cols-1 lg:grid-cols-2 mt-5"
+              className="grid lg:grid md:grid  gap-4 md:grid-cols-2 lg:grid-cols-2 mt-5"
             >
               <div>
                 <Label htmlFor="name">Full Name</Label>
