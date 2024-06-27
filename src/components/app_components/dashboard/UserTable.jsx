@@ -204,7 +204,7 @@ const UserTable = () => {
         </Table>}
         </CardContent>
         <CardFooter>
-{         user.length > 0 && <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}/>}
+ <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange}/>
         </CardFooter>
         </Card>
       ) : (
