@@ -187,6 +187,7 @@ const PaymentsSearchTable = () => {
                 <TableRow>
                   <TableHead>Name</TableHead>
                   <TableHead>Amount</TableHead>
+                  <TableHead>Month</TableHead>
                   <TableHead className="hidden md:table-cell">Status</TableHead>
                   <TableHead>
                     <span className="">Actions</span>
@@ -198,6 +199,7 @@ const PaymentsSearchTable = () => {
                   <TableRow key={p.id}>
                     <TableCell className="font-medium">{p.user.name}</TableCell>
                     <TableCell>{p.amount}</TableCell>
+                    <TableCell>{p.month}</TableCell>
                     <TableCell className="hidden md:table-cell">
                       <Badge variant="secondary">{p.status}</Badge>
                     </TableCell>
