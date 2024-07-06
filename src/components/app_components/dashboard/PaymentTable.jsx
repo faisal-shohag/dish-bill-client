@@ -155,7 +155,7 @@ const PaymentTable = ({users, currentPage, totalPages, handlePageChange, month, 
 
 <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
         <div className="fixed  inset-0 flex w-screen items-center justify-center p-4">
-          <DialogPanel className="max-w-lg rounded-md shadow-2xl space-y-4 border bg-white p-8 dark:bg-gray-900 min-w-[500px]">
+          <DialogPanel className="max-w-lg rounded-md shadow-2xl space-y-4 border bg-white p-8 dark:bg-gray-900">
             <DialogTitle className="font-bold">Collect Payment</DialogTitle>
             <Description></Description>
               <Input
